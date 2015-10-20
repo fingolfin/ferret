@@ -6,8 +6,7 @@ branches:
     - gh-pages
 
 addons:
-  apt:
-    packages:
+  apt_packages:
       libgmp3-dev
       parallel
       valgrind
