@@ -19,7 +19,8 @@ env:
 install:
   - git clone --depth=2 https://github.com/gap-system/gap.git gap
   - pwd
-  - ( cd gap && ./configure --with-gmp=system && make )
+  - ( cd gap && ./configure --with-gmp=system && make && make bootstrap-pkg-minimal)
+  - ( cd gap/pkg && git clone --depth=2 https://github.com/gap-packages/io && cd io && ./autogen.sh && ./configure && make )
   - pwd
   - ( ./configure gap && make )
   - pwd
