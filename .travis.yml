@@ -7,9 +7,9 @@ branches:
 
 addons:
   apt_packages:
-      libgmp3-dev
-      parallel
-      valgrind
+      - libgmp3-dev
+      - parallel
+      - valgrind
 env:
   - MAKEFLAG="CHECK=1"
   - MAKEFLAG="CHECK=0"
