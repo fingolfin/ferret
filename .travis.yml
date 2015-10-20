@@ -22,6 +22,9 @@ install:
   - ( cd gap && ./configure --with-gmp=system && make )
   - pwd
   - ( ./configure gap && make )
+  - ls gap/pkg
+  - ls
+  - echo ln -s $(pwd) gap/pkg/ferret
   - ln -s $(pwd) gap/pkg/ferret
   - cat ferret.vars
 
