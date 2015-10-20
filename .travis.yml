@@ -19,11 +19,10 @@ env:
 install:
   - git clone --depth=2 https://github.com/gap-system/gap.git gap
   - pwd
-  - cd gap && ./configure --with-gmp=system && make
+  - ( cd gap && ./configure --with-gmp=system && make )
   - pwd
-  - ./configure /opt/gap && make
-  - mkdir gap-root && mkdir gap-root/pkg && ln -s $(pwd) gap-root/pkg/ferret
-  - echo 'export GAPEXEC="$GAPEXEC -l '$(pwd)'/gap-root;"' >> ferret.vars
+  - ( ./configure gap && make )
+  - ln -s $(pwd) gap/pkg/ferret
   - cat ferret.vars
 
 script:
