@@ -17,6 +17,8 @@ env:
 
 
 install:
+  - gcc -v
+  - g++ -v
   - git clone --depth=2 https://github.com/gap-system/gap.git gap
   - pwd
   - ( cd gap && ./configure --with-gmp=system && make && make bootstrap-pkg-minimal)
