@@ -31,7 +31,7 @@ install:
   - ${CXX} -v
   - git clone --depth=2 https://github.com/gap-system/gap.git gap
   - pwd
-  - ( cd gap && CC=gcc-4.8 ./configure --with-gmp=system && make && make bootstrap-pkg-minimal)
+  - ( cd gap && CC=gcc-4.8 CXX=g++-4.8 ./configure --with-gmp=system && make && make bootstrap-pkg-minimal)
   - ( cd gap/pkg && git clone --depth=2 https://github.com/gap-packages/io && cd io && ./autogen.sh && ./configure && make )
   - ( cd gap/pkg && wget http://www.gap-system.org/pub/gap/gap4/tar.bz2/packages/atlasrep1r5p0.tar.bz2 && tar -xf atlasrep1r5p0.tar.bz2 )
   - pwd
