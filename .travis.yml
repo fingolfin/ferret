@@ -1,12 +1,21 @@
 language: cpp
-sudo: required
-dist: precise
+sudo: false
+
+install:
+- if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
 
 branches:
   except:
     - gh-pages
 
 addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+    - clang
   apt_packages:
       - libgmp3-dev
       - parallel
@@ -20,6 +29,8 @@ env:
 install:
   - gcc -v
   - g++ -v
+  - ${CC} -v
+  - ${CXX} -v
   - git clone --depth=2 https://github.com/gap-system/gap.git gap
   - pwd
   - ( cd gap && ./configure --with-gmp=system && make && make bootstrap-pkg-minimal)
